@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Days Counter</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  .columns {
+    display: flex;
+    justify-content: space-between;
+  }
+  .column {
+    width: 48%;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="title" id="daysCounter"></div>
+  <div class="columns">
+    <div class="column">
+      <h2>Ashutosh </h2>
+      <p>This is the content of column 1.</p>
+    </div>
+    <div class="column">
+      <h2>Ajay</h2>
+      <p>This is the content of column 2.</p>
+    </div>
+  </div>
+</div>
+<script>
+  // Set your target date here
+  const targetDate = new Date('2024-07-03');
+  
+  // Function to update the counter
+  function updateCounter() {
+    const currentDate = new Date();
+    const difference = targetDate - currentDate;
+    const daysRemaining = Math.ceil(difference / (1000 * 60 * 60 * 24));
+    document.getElementById('daysCounter').innerText = `Days Remaining: ${daysRemaining}`;
+  }
+  
+  // Initial call to update the counter
+  updateCounter();
+  
+  // Update the counter every second
+  setInterval(updateCounter, 1000);
+</script>
+</body>
+</html>
